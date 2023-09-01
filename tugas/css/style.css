@@ -1,0 +1,72 @@
+.container {
+  width: 1300px;
+  margin: auto;
+}
+
+.nav {
+  background-color: black;
+  text-align: center;
+}
+
+.nav ul,
+li {
+  color: white;
+  display: inline-block;
+}
+
+.nav li {
+  padding: 5px;
+  padding-right: 25px;
+  font-size: 18px;
+}
+
+.gambar {
+  background-image: url(../img/Onepiece.jpg);
+  height: 511px;
+}
+
+.main {
+  width: 800px;
+  box-sizing: border-box;
+  float: left;
+  text-align: justify;
+  padding-left: 100px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.sidebar {
+  width: 500px;
+  float: right;
+}
+
+.sidebar img {
+  padding-left: 50px;
+  padding-top: 85px;
+}
+
+.footer {
+  background-color: black;
+  margin-top: -15px;
+}
+
+.footer h3 {
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* clearfix */
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}

@@ -1,6 +1,6 @@
 .container {
-  width: 100%;
-  height: 200px;
+  width: 1500px;
+  margin: auto;
 }
 
 .nav {
@@ -16,19 +16,20 @@ li {
 .nav li {
   margin-left: -25px;
   margin-right: 290px;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .main {
   background-color: rgb(233, 233, 233);
-  margin-top: -20px;
   width: 1200px;
-  height: 800px;
+  height: 820px;
+  float: left;
 }
 
 .main h4 {
   padding: 10px;
   padding-top: 75px;
+  font-size: 20px;
 }
 
 .main img,
@@ -37,30 +38,45 @@ p {
 }
 
 .sidebar {
+  width: 300px;
   background-color: black;
-  width: 293px;
-  height: 795px;
-  margin-top: -819px;
-  margin-left: 1190px;
   color: white;
+  float: right;
+  margin-top: 5px;
 }
 
 .sidebar h2 {
-  padding-top: 50px;
+  padding-top: 25px;
   margin-left: 10px;
 }
 
 .sidebar img {
   margin-left: 10px;
+  margin-bottom: 5px;
 }
 
 .footer {
   background-color: black;
-  margin-top: -15px;
+  margin-top: -17px;
 }
 
 .footer h3 {
-  padding: 10px;
   color: white;
+  padding: 10px;
   text-align: center;
+}
+
+/* clearfix */
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
 }
