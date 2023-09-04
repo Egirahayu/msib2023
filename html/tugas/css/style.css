@@ -16,12 +16,13 @@ li {
 
 .nav li {
   padding: 5px;
-  padding-right: 25px;
-  font-size: 18px;
+  padding-right: 20px;
+  font-size: 20px;
 }
 
-.gambar {
-  background-image: url(../img/Onepiece.jpg);
+.hero {
+  background-image: url(../img/OnePiece.jpg);
+  max-width: 1300px;
   height: 511px;
 }
 
@@ -41,8 +42,10 @@ li {
 }
 
 .sidebar img {
-  padding-left: 50px;
+  padding-left: 60px;
   padding-top: 85px;
+  width: 270px;
+  height: 270px;
 }
 
 .footer {

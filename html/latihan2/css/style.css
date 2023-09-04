@@ -1,5 +1,5 @@
 .container {
-  width: 1500px;
+  width: 1300px;
   margin: auto;
 }
 
@@ -15,26 +15,37 @@ li {
 
 .nav li {
   margin-left: -25px;
-  margin-right: 290px;
+  margin-right: 220px;
   font-size: 18px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
 }
 
 .main {
   background-color: rgb(233, 233, 233);
-  width: 1200px;
-  height: 820px;
+  width: 1000px;
+  height: 675px;
   float: left;
 }
 
 .main h4 {
-  padding: 10px;
-  padding-top: 75px;
+  padding: 15px;
+  padding-top: 70px;
   font-size: 20px;
 }
 
-.main img,
-p {
-  padding: 10px;
+.main img {
+  margin-top: -20px;
+  padding: 15px;
+}
+
+.main p {
+  margin-top: -5px;
+  padding: 15px;
+  text-align: justify;
 }
 
 .sidebar {
@@ -43,6 +54,7 @@ p {
   color: white;
   float: right;
   margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .sidebar h2 {
@@ -52,7 +64,9 @@ p {
 
 .sidebar img {
   margin-left: 10px;
-  margin-bottom: 5px;
+  padding-bottom: 5px;
+  max-width: 200px;
+  max-height: 175px;
 }
 
 .footer {
