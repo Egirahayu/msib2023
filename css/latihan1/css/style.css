@@ -1,0 +1,46 @@
+.container {
+  width: 800px;
+  margin: auto;
+}
+
+.main {
+  width: 400px;
+  float: left;
+}
+
+.main h1 {
+  font-family: Arial;
+  font-size: 70px;
+  padding-top: 50px;
+}
+
+.main h2 {
+  padding-top: 25px;
+}
+
+.main button {
+  margin-top: 20px;
+  margin-left: 10px;
+  border: 0px;
+}
+
+.main .btn {
+  padding: 10px;
+  background-color: yellow;
+}
+
+.main .btn a {
+  text-decoration: none;
+  color: black;
+}
+
+.main .btn a:hover {
+  background-color: black;
+  color: yellow;
+}
+
+.side {
+  width: 300px;
+  float: right;
+  padding-top: 200px;
+}
