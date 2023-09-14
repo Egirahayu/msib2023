@@ -28,16 +28,12 @@
   margin-bottom: 10px;
 }
 
-.main .login h1 {
-  font-family: 'Satisfy';
-  font-weight: bold;
-  font-size: 40px;
-  text-align: center;
-  padding-top: 20px;
+.main .login img {
+  padding: 38px 47px;
+  margin-left: 30px;
 }
 
 .main .login form {
-  padding-top: 10px;
   text-align: center;
 }
 
@@ -48,6 +44,7 @@
   border-radius: 5%;
   border: 0.1rem solid #999;
   width: 243px;
+  font-size: 12px;
 }
 
 
@@ -189,10 +186,11 @@ li {
 .footer .dropdown {
   width: 500px;
   float: left;
-  margin-left: 177px;
+  margin-left: 185px;
 }
 
 .footer .dropdown select.option {
+  width: 60px;
   border: none;
   outline: none;
   font-size: 12px;
@@ -203,7 +201,7 @@ li {
 .footer .copyright .text {
   width: 500px;
   float: right;
-  margin-right: 177px;
+  margin-right: 195px;
   margin-top: -26px;
 }
 
