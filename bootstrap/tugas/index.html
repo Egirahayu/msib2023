@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- css bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+  <!-- css lokal -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- shortcut icon -->
+  <link rel="shortcut icon" href="img/ER.png">
+  <title>Tugas bootstrap</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg sticky-top bg-transparent fs-6 fw-semibold">
+    <div class="container p-3">
+      <a class="navbar-brand" href="#">
+        <img src="img/NavEduwork.png" alt="Logo" width="150" height="30" class="d-inline-block align-text-top">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown" style="text-align: center;">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item px-1">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item dropdown px-4">
+            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Kelas
+            </a>
+            <ul class="dropdown-menu bg-secondary">
+              <li><a class="dropdown-item text-secondary-emphasis" href="#">Private Mentoring</a></li>
+              <li><a class="dropdown-item text-secondary-emphasis" href="#">Bootcamp</a></li>
+              <li><a class="dropdown-item text-secondary-emphasis" href="#">Webinar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Hubungi Admin</a>
+          </li>
+          <li class="nav-item dropdown" style="margin-left: 240px">
+            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Member
+            </a>
+            <ul class="dropdown-menu bg-secondary">
+              <li><a class="dropdown-item text-secondary-emphasis" href="#">Account</a></li>
+              <li><a class="dropdown-item text-secondary-emphasis" href=" #">My Class</a></li>
+              <li><a class="dropdown-item text-secondary-emphasis" href=" #">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="container">
+      <div class="left" style="width: 410px;">
+        <h1 class="p-1 mt-3 fw-bold fs-1">Pelatihan & Penyaluran Kerja.</h1>
+
+        <div class="rounded p-2 mt-4">
+          <p class="round">1</p>
+          <div class="titik" style="margin-top: -5px;"></div>
+          <div class="titik"></div>
+          <div class="titik"></div>
+          <div class="titik"></div>
+          <div class="titik"></div>
+          <div class="titik"></div>
+          <div class="titik"></div>
+          <div class="titik"></div>
+          <div class="panah">
+            <div class="arrow"></div>
+          </div>
+
+          <p class="round">2</p>
+          <div class="titik" style="margin-top: -5px;"></div>
+          <div class="titik"></div>
+          <div class="titik"></div>
+          <div class="titik"></div>
+          <div class="titik"></div>
+          <div class="titik"></div>
+          <div class="titik"></div>
+          <div class="titik"></div>
+          <div class="panah">
+            <div class="arrow"></div>
+          </div>
+
+          <p class="round">3</p>
+        </div>
+
+        <div class="content">
+          <div class="content-1">
+            <h5>Daftar, Get Free Class!</h5>
+            <p>Join komunitas belajar, dapatkan akses kelas & materi gratis</p>
+          </div>
+          <div class="content-2">
+            <h5>Belajar Intensif</h5>
+            <p>Belajar didampingi virtual assistant & mentor expert via grup & 1-on-1 zoom mentoring</p>
+          </div>
+          <div class="content-3">
+            <h5>Penyaluran Kerja Dijamin</h5>
+            <p>Dapatkan pekerjaan dengan gaji s.d 10jt lebih</p>
+          </div>
+        </div>
+
+        <div class="free text-white fw-semibold">Free</div>
+        <a class="btn btn-primary btn-dg mt-4" href="#">Daftar Gratis</a>
+        <a class="btn btn-warning btn-kd mt-4" href="#">Konsultasi Dulu</a>
+
+        <p class="mt-4"><b>75,863</b> Students & <b>166</b> Mentors has joined!</p>
+      </div>
+    </div>
+
+    <div class="right" style="width: 550px;">
+      <img src="img/Alumni-eduwork.png" width="515px">
+
+      <div class="desk shadow-lg p-2 bg-body-tertiary rounded" style="display: block;">
+        <marquee behavior="scroll" scrolldelay=”2000″ direction="up" height="100px"> "Sebelumnya saya tidak punya
+          background IT karena
+          jurusan Kimia, setelah saya belajar coding di
+          Eduwork, Saya
+          berhasil diterima kerja di Tokopedia sebagai Programer."</marquee>
+      </div>
+    </div>
+  </div>
+
+  <!-- js bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
