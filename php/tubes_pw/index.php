@@ -17,6 +17,8 @@ $anime = mysqli_query($conn, "SELECT * FROM anime");
 
   <!-- css materialize -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- materialize icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <link rel="shortcut icon" href="ER.png">
   <title>Tubes Pemrograman Web</title>
@@ -25,6 +27,10 @@ $anime = mysqli_query($conn, "SELECT * FROM anime");
     body {
       background-image: url(img/unsplash.jpg);
     }
+
+    .add {
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 
@@ -32,6 +38,9 @@ $anime = mysqli_query($conn, "SELECT * FROM anime");
   <div class="container">
     <h3 class="center">Main Character (MC) Anime</h3>
 
+    <div class="add">
+      <a href="tambah.php" class="btn-floating btn-large waves-effect waves-light black mb-5"><i class="material-icons">add</i></a>
+    </div>
 
     <table class="striped">
       <tr class="orange darken-2">
@@ -57,6 +66,10 @@ $anime = mysqli_query($conn, "SELECT * FROM anime");
         <?php $i++; ?>
       <?php endforeach; ?>
     </table>
+  </div>
+
+  <!-- script materialize -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 
 </html>
