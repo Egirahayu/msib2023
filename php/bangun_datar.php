@@ -54,4 +54,4 @@ $luasTrapesium = 1 / 2 * ($a + $b) * $t;
 echo "a : " . $a . " cm <br>";
 echo "b : " . $b . " cm <br>";
 echo "t : " . $t . " cm <br>";
-echo "Luas Lingkaran : 1/2 * (a + b) * t = " . $luasTrapesium . " cm";
+echo "Luas Trapesium : 1/2 * (a + b) * t = " . $luasTrapesium . " cm";
