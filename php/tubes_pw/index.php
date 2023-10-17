@@ -20,7 +20,7 @@ $anime = mysqli_query($conn, "SELECT * FROM anime");
   <!-- materialize icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <link rel="shortcut icon" href="ER.png">
+  <link rel="shortcut icon" href="img/ER.png">
   <title>Tubes Pemrograman Web</title>
 
   <style>
@@ -45,6 +45,7 @@ $anime = mysqli_query($conn, "SELECT * FROM anime");
     <table class="striped">
       <tr class="orange darken-2">
         <th class="center">No</th>
+        <th class="center">Opsi</th>
         <th class="center">Image</th>
         <th>Nama MC</th>
         <th>Anime</th>
@@ -57,6 +58,10 @@ $anime = mysqli_query($conn, "SELECT * FROM anime");
       <?php foreach ($anime as $anm) : ?>
         <tr class="grey darken-3 white-text">
           <td class="center"><?= $i; ?></td>
+          <td class="center">
+            <a href="edit.php?id=<?= $anm['id']; ?>" class="waves-effect waves-light blue darken-2 btn">Edit</a>
+            <a href="delete.php?id=<?= $anm['id']; ?>" class="waves-effect waves-light red darken-2 btn" onclick="return confirm('Hapus Data?')">Delete</a>
+          </td>
           <td class="center"><img src="img/<?= $anm['img']; ?>" width="100px"></td>
           <td><?= $anm['nama']; ?></td>
           <td><?= $anm['anime']; ?></td>
