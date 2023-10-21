@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+
+  <title>Latihan 2 Jquery</title>
+</head>
+
+<body>
+  <table id="myTable" class="display">
+    <thead>
+      <tr>
+        <th>Nama</th>
+        <th>Umur</th>
+        <th>Alamat</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Egi</td>
+        <td>22</td>
+        <td>Majalengka</td>
+      </tr>
+      <tr>
+        <td>Andre</td>
+        <td>21</td>
+        <td>Bandung</td>
+      </tr>
+      <tr>
+        <td>Fajar</td>
+        <td>20</td>
+        <td>Cirebon</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#myTable').DataTable();
+    });
+  </script>
+</body>
+
+</html>
