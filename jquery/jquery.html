@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Latihan Jquery</title>
+</head>
+
+<body>
+  <form id="formJquery">
+    <label for="nama">Nama :</label>
+    <input type="text" id="nama"><br><br>
+
+    <input type="submit" id="btnSubmit" value="Submit" disabled>
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      const $form = $('#formJquery');
+      const $inputNama = $('#nama');
+      const $btnSubmit = $('#btnSubmit');
+
+      $form.on('input', function () {
+        if ($inputNama.val() !== '') {
+          $btnSubmit.prop('disabled', false);
+        } else {
+          $btnSubmit.prop('disabled', true);
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
