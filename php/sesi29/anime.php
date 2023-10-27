@@ -4,7 +4,7 @@
 // Full Stack 01
 
 include "config.php";
-$character = mysqli_query($conn, "SELECT karakter.id, karakter.img, nama_char, tanggal_lahir, anime.nama_anime FROM karakter JOIN anime ON karakter.id_anime = anime.id");
+$anime = mysqli_query($conn, "SELECT anime.id, anime.img, nama_anime, rilis, pengarang.nama_pengarang FROM anime JOIN pengarang ON anime.id_pengarang = pengarang.id");
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +19,7 @@ $character = mysqli_query($conn, "SELECT karakter.id, karakter.img, nama_char, t
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
   <link rel="shortcut icon" href="img/ER.png">
-  <title>Main Character Anime</title>
+  <title>Anime</title>
 
   <style>
     @font-face {
@@ -57,26 +57,26 @@ $character = mysqli_query($conn, "SELECT karakter.id, karakter.img, nama_char, t
   </nav>
 
   <div class="container">
-    <h3 class="center">Character Anime</h3>
+    <h3 class="center">Anime</h3>
 
     <table class="striped">
       <tr class="orange darken-2">
         <th class="center">No</th>
         <th class="center">Image</th>
-        <th>Nama Character</th>
-        <th>Birthday</th>
         <th>Anime</th>
+        <th>Release</th>
+        <th>Author</th>
       </tr>
 
       <?php $i = 1; ?>
 
-      <?php foreach ($character as $char) : ?>
+      <?php foreach ($anime as $anm) : ?>
         <tr class="grey darken-3 white-text">
           <td class="center"><?= $i; ?></td>
-          <td class="center"><img src="img/<?= $char['img']; ?>" width="100px"></td>
-          <td><?= $char['nama_char']; ?></td>
-          <td><?= date("d F", strtotime($char['tanggal_lahir'])); ?></td>
-          <td><?= $char['nama_anime']; ?></td>
+          <td class="center"><img src="img/<?= $anm['img']; ?>" width="100px"></td>
+          <td><?= $anm['nama_anime']; ?></td>
+          <td><?= $anm['rilis']; ?></td>
+          <td><?= $anm['nama_pengarang']; ?></td>
         </tr>
         <?php $i++; ?>
       <?php endforeach; ?>
