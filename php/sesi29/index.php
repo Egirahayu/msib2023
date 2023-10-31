@@ -4,7 +4,7 @@
 // Full Stack 01
 
 include "config.php";
-$character = mysqli_query($conn, "SELECT karakter.id, karakter.img, nama_char, tanggal_lahir, anime.nama_anime FROM karakter JOIN anime ON karakter.id_anime = anime.id");
+$character = mysqli_query($conn, "SELECT characters.img, nama_char, tgl_lahir, anime.nama_anime FROM characters JOIN anime ON characters.id_anime = anime.id");
 ?>
 
 <!DOCTYPE html>
@@ -17,9 +17,11 @@ $character = mysqli_query($conn, "SELECT karakter.id, karakter.img, nama_char, t
 
   <!-- css materialize -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- materialize icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <link rel="shortcut icon" href="img/ER.png">
-  <title>Main Character Anime</title>
+  <title>Character Anime</title>
 
   <style>
     @font-face {
@@ -59,6 +61,10 @@ $character = mysqli_query($conn, "SELECT karakter.id, karakter.img, nama_char, t
   <div class="container">
     <h3 class="center">Character Anime</h3>
 
+    <div class="add">
+      <a href="add_char.php" class="btn-floating btn-large waves-effect waves-light black mb-5"><i class="material-icons">add</i></a>
+    </div>
+
     <table class="striped">
       <tr class="orange darken-2">
         <th class="center">No</th>
@@ -75,7 +81,7 @@ $character = mysqli_query($conn, "SELECT karakter.id, karakter.img, nama_char, t
           <td class="center"><?= $i; ?></td>
           <td class="center"><img src="img/<?= $char['img']; ?>" width="100px"></td>
           <td><?= $char['nama_char']; ?></td>
-          <td><?= date("d F", strtotime($char['tanggal_lahir'])); ?></td>
+          <td><?= date("d F", strtotime($char['tgl_lahir'])); ?></td>
           <td><?= $char['nama_anime']; ?></td>
         </tr>
         <?php $i++; ?>

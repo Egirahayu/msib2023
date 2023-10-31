@@ -4,7 +4,7 @@
 // Full Stack 01
 
 include "config.php";
-$anime = mysqli_query($conn, "SELECT anime.id, anime.img, nama_anime, rilis, pengarang.nama_pengarang FROM anime JOIN pengarang ON anime.id_pengarang = pengarang.id");
+$anime = mysqli_query($conn, "SELECT anime.img, nama_anime, rilis, author.nama_author FROM anime JOIN author ON anime.id_author = author.id");
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +17,8 @@ $anime = mysqli_query($conn, "SELECT anime.id, anime.img, nama_anime, rilis, pen
 
   <!-- css materialize -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- materialize icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <link rel="shortcut icon" href="img/ER.png">
   <title>Anime</title>
@@ -59,6 +61,10 @@ $anime = mysqli_query($conn, "SELECT anime.id, anime.img, nama_anime, rilis, pen
   <div class="container">
     <h3 class="center">Anime</h3>
 
+    <div class="add">
+      <a href="tambah.php" class="btn-floating btn-large waves-effect waves-light black mb-5"><i class="material-icons">add</i></a>
+    </div>
+
     <table class="striped">
       <tr class="orange darken-2">
         <th class="center">No</th>
@@ -76,7 +82,7 @@ $anime = mysqli_query($conn, "SELECT anime.id, anime.img, nama_anime, rilis, pen
           <td class="center"><img src="img/<?= $anm['img']; ?>" width="100px"></td>
           <td><?= $anm['nama_anime']; ?></td>
           <td><?= $anm['rilis']; ?></td>
-          <td><?= $anm['nama_pengarang']; ?></td>
+          <td><?= $anm['nama_author']; ?></td>
         </tr>
         <?php $i++; ?>
       <?php endforeach; ?>

@@ -6,5 +6,5 @@
 $hostName = "localhost";
 $userName = "root";
 $password = "";
-$dbName = 'karakter_anime';
+$dbName = 'char_anime';
 $conn = new mysqli($hostName, $userName, $password, $dbName);

@@ -4,7 +4,7 @@
 // Full Stack 01
 
 include "config.php";
-$author = mysqli_query($conn, "SELECT * FROM pengarang");
+$author = mysqli_query($conn, "SELECT * FROM author");
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +17,8 @@ $author = mysqli_query($conn, "SELECT * FROM pengarang");
 
   <!-- css materialize -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- materialize icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <link rel="shortcut icon" href="img/ER.png">
   <title>Author Anime</title>
@@ -59,6 +61,10 @@ $author = mysqli_query($conn, "SELECT * FROM pengarang");
   <div class="container">
     <h3 class="center">Author Anime</h3>
 
+    <div class="add">
+      <a href="add_author.php" class="btn-floating btn-large waves-effect waves-light black mb-5"><i class="material-icons">add</i></a>
+    </div>
+
     <table class="striped">
       <tr class="orange darken-2">
         <th class="center">No</th>
@@ -73,8 +79,8 @@ $author = mysqli_query($conn, "SELECT * FROM pengarang");
         <tr class="grey darken-3 white-text">
           <td class="center"><?= $i; ?></td>
           <td class="center"><img src="img/<?= $auth['img']; ?>" width="100px"></td>
-          <td><?= $auth['nama_pengarang']; ?></td>
-          <td><?= date("d F Y", strtotime($auth['tanggal_lahir'])); ?></td>
+          <td><?= $auth['nama_author']; ?></td>
+          <td><?= date("d F Y", strtotime($auth['tgl_lahir'])); ?></td>
         </tr>
         <?php $i++; ?>
       <?php endforeach; ?>
