@@ -62,7 +62,7 @@ $anime = mysqli_query($conn, "SELECT anime.img, nama_anime, rilis, author.nama_a
     <h3 class="center">Anime</h3>
 
     <div class="add">
-      <a href="tambah.php" class="btn-floating btn-large waves-effect waves-light black mb-5"><i class="material-icons">add</i></a>
+      <a href="add_anime.php" class="btn-floating btn-large waves-effect waves-light black mb-5"><i class="material-icons">add</i></a>
     </div>
 
     <table class="striped">

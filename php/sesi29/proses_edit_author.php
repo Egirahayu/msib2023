@@ -58,16 +58,22 @@ function upload()
   return $nama_file_baru;
 }
 
-$nama = $_POST['nama'];
-$tglLahir = $_POST['tglLahir'];
+$id = $_GET['id'];
+$nama_author = $_POST['nama_author'];
+$tgl_lahir = $_POST['tgl_lahir'];
+$image = $_POST['image'];
 
 $img = upload();
 if (!$img) {
   return false;
 }
 
+if ($img == 'nophoto.jpg') {
+  $img = $image;
+}
+
 include_once("config.php");
 
-$result = mysqli_query($conn, "INSERT INTO author (img, nama_author, tgl_lahir) VALUES ('$img', '$nama', '$tglLahir');");
+$result = mysqli_query($conn, "UPDATE author SET nama_author = '$nama_author', tgl_lahir = '$tgl_lahir', img = '$img' WHERE id = '$id';");
 
 header("Location:author.php");
