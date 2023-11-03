@@ -3,8 +3,9 @@
 // Universitas Pasundan
 // Full Stack 01
 
-include "config.php";
-$author = mysqli_query($conn, "SELECT * FROM author");
+require 'functions.php';
+
+$author = query("SELECT * FROM author");
 ?>
 
 <!DOCTYPE html>

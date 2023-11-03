@@ -2,6 +2,22 @@
 // Mohamad Egi Rahayu
 // Universitas Pasundan
 // Full Stack 01
+
+require 'functions.php';
+
+if (isset($_POST['add_author'])) {
+  if (add_author($_POST) > 0) {
+    echo "<script>
+            alert('Data Added successfully!');
+            document.location.href = 'author.php';
+          </script>";
+  } else {
+    echo "<script>
+            alert('Data Failed to add!');
+            document.location.href = 'author.php';
+          </script>";
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +32,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
   <link rel="shortcut icon" href="img/ER.png">
-  <title>Tambah Data Author Anime</title>
+  <title>Add Data Author Anime</title>
 
   <style>
     body {
@@ -27,16 +43,16 @@
 
 <body>
   <div class="container">
-    <form action="proses_author.php" method="post" enctype="multipart/form-data">
+    <form action="" method="post" enctype="multipart/form-data">
       <div class="card-panel">
-        <h5>Form Tambah Data Author Anime</h5>
+        <h5>Form Add Data Author Anime</h5>
         <div class="input-field">
-          <input type="text" name="nama" id="nama" class="validate" autocomplete="off">
-          <label for="nama">Nama Author</label>
+          <input type="text" name="nama_author" id="nama_author" class="validate" autocomplete="off">
+          <label for="nama_author">Name Author</label>
         </div>
         <div class="input-field">
-          <input type="date" name="tglLahir" id="tglLahir" autocomplete="off">
-          <label for="tglLahir">Tanggal Lahir</label>
+          <input type="date" name="tgl_lahir" id="tgl_lahir" autocomplete="off">
+          <label for="tgl_lahir">Birthday</label>
         </div>
         <div class="file-field input-field">
           <div class="btn">
@@ -44,13 +60,13 @@
             <input type="file" multiple name="gambar" class="gambar" onchange="previewImage()">
           </div>
           <div class="file-path-wrapper">
-            <input class="file-path validate" type="text" placeholder="Upload Gambar">
+            <input class="file-path validate" type="text" placeholder="Upload Image">
           </div>
           <img src="img/nophoto.jpg" width="120px" style="display: block;" class="img-preview">
         </div>
-        <button class="waves-effect waves-light orange darken-4 btn" type="submit" name="submit">Tambah Data!</button></a>
+        <button class="waves-effect waves-light orange darken-4 btn" type="submit" name="add_author">Add Data!</button></a>
         <button class="waves-effect waves-light orange darken-4 btn" type="submit">
-          <a href="author.php" style='text-decoration: none; color: white;'>Kembali</a>
+          <a href="author.php" style='text-decoration: none; color: white;'>Back</a>
         </button>
       </div>
     </form>

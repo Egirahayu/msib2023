@@ -6,14 +6,14 @@
 require 'functions.php';
 $id = $_GET['id'];
 
-if (delete_author($id) > 0) {
+if (delete_char($id) > 0) {
   echo "<script>
           alert('Data Successfully deleted!');
-          document.location.href = 'author.php';
+          document.location.href = 'index.php';
         </script>";
 } else {
   echo "<script>
           alert('Data Failed to delete!');
-          document.location.href = 'author.php';
+          document.location.href = 'index.php';
         </script>";
 }

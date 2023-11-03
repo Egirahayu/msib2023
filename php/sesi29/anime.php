@@ -3,8 +3,9 @@
 // Universitas Pasundan
 // Full Stack 01
 
-include "config.php";
-$anime = mysqli_query($conn, "SELECT anime.img, nama_anime, rilis, author.nama_author FROM anime JOIN author ON anime.id_author = author.id");
+require 'functions.php';
+
+$anime = query("SELECT anime.id, anime.img, nama_anime, rilis, author.nama_author FROM anime JOIN author ON anime.id_author = author.id");
 ?>
 
 <!DOCTYPE html>
@@ -68,6 +69,7 @@ $anime = mysqli_query($conn, "SELECT anime.img, nama_anime, rilis, author.nama_a
     <table class="striped">
       <tr class="orange darken-2">
         <th class="center">No</th>
+        <th class="center">Opsi</th>
         <th class="center">Image</th>
         <th>Anime</th>
         <th>Release</th>
@@ -79,6 +81,10 @@ $anime = mysqli_query($conn, "SELECT anime.img, nama_anime, rilis, author.nama_a
       <?php foreach ($anime as $anm) : ?>
         <tr class="grey darken-3 white-text">
           <td class="center"><?= $i; ?></td>
+          <td class="center">
+            <a href="edit_anime.php?id=<?= $anm['id']; ?>" class="waves-effect waves-light blue darken-2 btn">Edit</a>
+            <a href="delete_anime.php?id=<?= $anm['id']; ?>" class="waves-effect waves-light red darken-2 btn" onclick="return confirm('Hapus Data?')">Delete</a>
+          </td>
           <td class="center"><img src="img/<?= $anm['img']; ?>" width="100px"></td>
           <td><?= $anm['nama_anime']; ?></td>
           <td><?= $anm['rilis']; ?></td>

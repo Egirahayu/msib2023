@@ -3,8 +3,9 @@
 // Universitas Pasundan
 // Full Stack 01
 
-include "config.php";
-$character = mysqli_query($conn, "SELECT characters.img, nama_char, tgl_lahir, anime.nama_anime FROM characters JOIN anime ON characters.id_anime = anime.id");
+require 'functions.php';
+
+$character = query("SELECT characters.id, characters.img, nama_char, tgl_lahir, anime.nama_anime FROM characters JOIN anime ON characters.id_anime = anime.id");
 ?>
 
 <!DOCTYPE html>
@@ -68,6 +69,7 @@ $character = mysqli_query($conn, "SELECT characters.img, nama_char, tgl_lahir, a
     <table class="striped">
       <tr class="orange darken-2">
         <th class="center">No</th>
+        <th class="center">Opsi</th>
         <th class="center">Image</th>
         <th>Nama Character</th>
         <th>Birthday</th>
@@ -79,6 +81,10 @@ $character = mysqli_query($conn, "SELECT characters.img, nama_char, tgl_lahir, a
       <?php foreach ($character as $char) : ?>
         <tr class="grey darken-3 white-text">
           <td class="center"><?= $i; ?></td>
+          <td class="center">
+            <a href="edit_char.php?id=<?= $char['id']; ?>" class="waves-effect waves-light blue darken-2 btn">Edit</a>
+            <a href="delete_char.php?id=<?= $char['id']; ?>" class="waves-effect waves-light red darken-2 btn" onclick="return confirm('Hapus Data?')">Delete</a>
+          </td>
           <td class="center"><img src="img/<?= $char['img']; ?>" width="100px"></td>
           <td><?= $char['nama_char']; ?></td>
           <td><?= date("d F", strtotime($char['tgl_lahir'])); ?></td>
