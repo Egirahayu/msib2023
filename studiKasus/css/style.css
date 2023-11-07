@@ -1,0 +1,53 @@
+.mynavbar {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(1px);
+}
+
+.mynavbar .offcanvas {
+  height: 100vh;
+}
+
+.mynavbar .navbar-brand,
+.mynavbar.offcanvas-title {
+  font-family: 'Sacramento';
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.mynavbar .nav-link {
+  font-size: 20px;
+}
+
+.card {
+  max-width: 250px;
+  margin-right: 25px;
+  margin-left: 25px;
+}
+
+.card h5 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card p {
+  font-size: 14px;
+  color: #999;
+}
+
+.card h4 {
+  font-size: 16px;
+  color: red;
+  text-align: end;
+}
+
+.carousel-control-prev {
+  position: absolute;
+  display: flex;
+  justify-content: start;
+}
+
+.carousel-control-next {
+  position: absolute;
+  display: flex;
+  justify-content: end;
+}
