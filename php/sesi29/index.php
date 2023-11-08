@@ -16,6 +16,8 @@ $character = query("SELECT characters.id, characters.img, nama_char, tgl_lahir, 
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- css datatable -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
   <!-- css materialize -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <!-- materialize icons -->
@@ -49,7 +51,7 @@ $character = query("SELECT characters.id, characters.img, nama_char, tgl_lahir, 
     <div class="nav-wrapper">
       <div class="container">
         <img src="img/ER-2.png" width="60px" height="50px" style="padding-top: 10px;">
-        <a href="" class="brand-logo" style="padding-left: 15px;">Egi Rahayu</a>
+        <a href="index.php" class="brand-logo" style="padding-left: 15px;">Egi Rahayu</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="index.php">Character Anime</a></li>
           <li><a href="anime.php">Anime</a></li>
@@ -66,37 +68,51 @@ $character = query("SELECT characters.id, characters.img, nama_char, tgl_lahir, 
       <a href="add_char.php" class="btn-floating btn-large waves-effect waves-light black mb-5"><i class="material-icons">add</i></a>
     </div>
 
-    <table class="striped">
-      <tr class="orange darken-2">
-        <th class="center">No</th>
-        <th class="center">Opsi</th>
-        <th class="center">Image</th>
-        <th>Nama Character</th>
-        <th>Birthday</th>
-        <th>Anime</th>
-      </tr>
+    <table class="striped" id="myTable" class="display">
+      <thead>
+        <tr class="orange darken-2">
+          <th>No</th>
+          <th>Opsi</th>
+          <th>Image</th>
+          <th>Nama Character</th>
+          <th>Birthday</th>
+          <th>Anime</th>
+        </tr>
+      </thead>
 
       <?php $i = 1; ?>
 
       <?php foreach ($character as $char) : ?>
-        <tr class="grey darken-3 white-text">
-          <td class="center"><?= $i; ?></td>
-          <td class="center">
-            <a href="edit_char.php?id=<?= $char['id']; ?>" class="waves-effect waves-light blue darken-2 btn">Edit</a>
-            <a href="delete_char.php?id=<?= $char['id']; ?>" class="waves-effect waves-light red darken-2 btn" onclick="return confirm('Hapus Data?')">Delete</a>
-          </td>
-          <td class="center"><img src="img/<?= $char['img']; ?>" width="100px"></td>
-          <td><?= $char['nama_char']; ?></td>
-          <td><?= date("d F", strtotime($char['tgl_lahir'])); ?></td>
-          <td><?= $char['nama_anime']; ?></td>
-        </tr>
-        <?php $i++; ?>
+        <tbody>
+          <tr class="grey darken-3 white-text">
+            <td class="center"><?= $i; ?></td>
+            <td class="center">
+              <a href="edit_char.php?id=<?= $char['id']; ?>" class="waves-effect waves-light blue darken-2 btn">Edit</a>
+              <a href="delete_char.php?id=<?= $char['id']; ?>" class="waves-effect waves-light red darken-2 btn" onclick="return confirm('Hapus Data?')">Delete</a>
+            </td>
+            <td class="center"><img src="img/<?= $char['img']; ?>" width="100px"></td>
+            <td><?= $char['nama_char']; ?></td>
+            <td><?= date("d F", strtotime($char['tgl_lahir'])); ?></td>
+            <td><?= $char['nama_anime']; ?></td>
+          </tr>
+          <?php $i++; ?>
+        </tbody>
       <?php endforeach; ?>
     </table>
   </div>
 
+  <!-- script jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- script datatable -->
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
   <!-- script materialize -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('#myTable').DataTable();
+    });
+  </script>
 </body>
 
 </html>
