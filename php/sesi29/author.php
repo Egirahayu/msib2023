@@ -16,6 +16,12 @@ $author = query("SELECT * FROM author");
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- script jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <!-- css datatable -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+  <!-- script datatable -->
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
   <!-- css materialize -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <!-- materialize icons -->
@@ -66,35 +72,41 @@ $author = query("SELECT * FROM author");
       <a href="add_author.php" class="btn-floating btn-large waves-effect waves-light black mb-5"><i class="material-icons">add</i></a>
     </div>
 
-    <table class="striped">
-      <tr class="orange darken-2">
-        <th class="center">No</th>
-        <th class="center">Opsi</th>
-        <th class="center">Image</th>
-        <th>Nama Author</th>
-        <th>Birthday</th>
-      </tr>
-
-      <?php $i = 1; ?>
+    <table id="author" class="striped display">
+      <thead>
+        <tr class="orange darken-2">
+          <th class="center">No</th>
+          <th class="center">Opsi</th>
+          <th class="center">Image</th>
+          <th>Nama Author</th>
+          <th>Birthday</th>
+        </tr>
+      </thead>
 
       <?php foreach ($author as $auth) : ?>
-        <tr class="grey darken-3 white-text">
-          <td class="center"><?= $i; ?></td>
-          <td class="center">
-            <a href="edit_author.php?id=<?= $auth['id']; ?>" class="waves-effect waves-light blue darken-2 btn">Edit</a>
-            <a href="delete_author.php?id=<?= $auth['id']; ?>" class="waves-effect waves-light red darken-2 btn" onclick="return confirm('Hapus Data?')">Delete</a>
-          </td>
-          <td class="center"><img src="img/<?= $auth['img']; ?>" width="100px"></td>
-          <td><?= $auth['nama_author']; ?></td>
-          <td><?= date("d F Y", strtotime($auth['tgl_lahir'])); ?></td>
-        </tr>
-        <?php $i++; ?>
+        <tbody>
+          <tr class="grey darken-3 white-text">
+            <td class="center"><?= $auth['id']; ?></td>
+            <td class="center">
+              <a href="edit_author.php?id=<?= $auth['id']; ?>" class="waves-effect waves-light blue darken-2 btn">Edit</a>
+              <a href="delete_author.php?id=<?= $auth['id']; ?>" class="waves-effect waves-light red darken-2 btn" onclick="return confirm('Hapus Data?')">Delete</a>
+            </td>
+            <td class="center"><img src="img/<?= $auth['img']; ?>" width="100px"></td>
+            <td><?= $auth['nama_author']; ?></td>
+            <td><?= date("d F Y", strtotime($auth['tgl_lahir'])); ?></td>
+          </tr>
+        </tbody>
       <?php endforeach; ?>
     </table>
   </div>
 
   <!-- script materialize -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#author').DataTable();
+    });
+  </script>
 </body>
 
 </html>

@@ -16,8 +16,12 @@ $character = query("SELECT characters.id, characters.img, nama_char, tgl_lahir, 
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- script jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <!-- css datatable -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+  <!-- script datatable -->
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
   <!-- css materialize -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <!-- materialize icons -->
@@ -68,7 +72,7 @@ $character = query("SELECT characters.id, characters.img, nama_char, tgl_lahir, 
       <a href="add_char.php" class="btn-floating btn-large waves-effect waves-light black mb-5"><i class="material-icons">add</i></a>
     </div>
 
-    <table class="striped" id="myTable" class="display">
+    <table id="char" class="striped display">
       <thead>
         <tr class="orange darken-2">
           <th>No</th>
@@ -80,12 +84,10 @@ $character = query("SELECT characters.id, characters.img, nama_char, tgl_lahir, 
         </tr>
       </thead>
 
-      <?php $i = 1; ?>
-
       <?php foreach ($character as $char) : ?>
         <tbody>
           <tr class="grey darken-3 white-text">
-            <td class="center"><?= $i; ?></td>
+            <td class="center"><?= $char['id']; ?></td>
             <td class="center">
               <a href="edit_char.php?id=<?= $char['id']; ?>" class="waves-effect waves-light blue darken-2 btn">Edit</a>
               <a href="delete_char.php?id=<?= $char['id']; ?>" class="waves-effect waves-light red darken-2 btn" onclick="return confirm('Hapus Data?')">Delete</a>
@@ -95,22 +97,17 @@ $character = query("SELECT characters.id, characters.img, nama_char, tgl_lahir, 
             <td><?= date("d F", strtotime($char['tgl_lahir'])); ?></td>
             <td><?= $char['nama_anime']; ?></td>
           </tr>
-          <?php $i++; ?>
         </tbody>
       <?php endforeach; ?>
     </table>
   </div>
 
-  <!-- script jquery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <!-- script datatable -->
-  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
   <!-- script materialize -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
   <script>
     $(document).ready(function() {
-      $('#myTable').DataTable();
+      $('#char').DataTable();
     });
   </script>
 </body>

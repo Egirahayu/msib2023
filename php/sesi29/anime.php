@@ -16,6 +16,12 @@ $anime = query("SELECT anime.id, anime.img, nama_anime, rilis, author.nama_autho
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- script jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <!-- css datatable -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+  <!-- script datatable -->
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
   <!-- css materialize -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <!-- materialize icons -->
@@ -66,37 +72,43 @@ $anime = query("SELECT anime.id, anime.img, nama_anime, rilis, author.nama_autho
       <a href="add_anime.php" class="btn-floating btn-large waves-effect waves-light black mb-5"><i class="material-icons">add</i></a>
     </div>
 
-    <table class="striped">
-      <tr class="orange darken-2">
-        <th class="center">No</th>
-        <th class="center">Opsi</th>
-        <th class="center">Image</th>
-        <th>Anime</th>
-        <th>Release</th>
-        <th>Author</th>
-      </tr>
-
-      <?php $i = 1; ?>
+    <table id="anime" class="striped display">
+      <thead>
+        <tr class="orange darken-2">
+          <th class="center">No</th>
+          <th class="center">Opsi</th>
+          <th class="center">Image</th>
+          <th>Anime</th>
+          <th>Release</th>
+          <th>Author</th>
+        </tr>
+      </thead>
 
       <?php foreach ($anime as $anm) : ?>
-        <tr class="grey darken-3 white-text">
-          <td class="center"><?= $i; ?></td>
-          <td class="center">
-            <a href="edit_anime.php?id=<?= $anm['id']; ?>" class="waves-effect waves-light blue darken-2 btn">Edit</a>
-            <a href="delete_anime.php?id=<?= $anm['id']; ?>" class="waves-effect waves-light red darken-2 btn" onclick="return confirm('Hapus Data?')">Delete</a>
-          </td>
-          <td class="center"><img src="img/<?= $anm['img']; ?>" width="100px"></td>
-          <td><?= $anm['nama_anime']; ?></td>
-          <td><?= $anm['rilis']; ?></td>
-          <td><?= $anm['nama_author']; ?></td>
-        </tr>
-        <?php $i++; ?>
+        <tbody>
+          <tr class="grey darken-3 white-text">
+            <td class="center"><?= $anm['id']; ?></td>
+            <td class="center">
+              <a href="edit_anime.php?id=<?= $anm['id']; ?>" class="waves-effect waves-light blue darken-2 btn">Edit</a>
+              <a href="delete_anime.php?id=<?= $anm['id']; ?>" class="waves-effect waves-light red darken-2 btn" onclick="return confirm('Hapus Data?')">Delete</a>
+            </td>
+            <td class="center"><img src="img/<?= $anm['img']; ?>" width="100px"></td>
+            <td><?= $anm['nama_anime']; ?></td>
+            <td><?= $anm['rilis']; ?></td>
+            <td><?= $anm['nama_author']; ?></td>
+          </tr>
+        </tbody>
       <?php endforeach; ?>
     </table>
   </div>
 
   <!-- script materialize -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#anime').DataTable();
+    });
+  </script>
 </body>
 
 </html>
