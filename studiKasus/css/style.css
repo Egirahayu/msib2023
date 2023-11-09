@@ -18,36 +18,86 @@
   font-size: 20px;
 }
 
+.header a {
+  position: relative;
+  float: right;
+  font-size: 20px;
+  color: blue;
+  text-decoration: none;
+  margin-top: -55px;
+}
+
 .card {
-  max-width: 250px;
-  margin-right: 25px;
-  margin-left: 25px;
+  width: 215px;
+  height: 525px;
+  background-color: black;
+  padding: 2.5px;
+  border-radius: 1rem;
+  color: white;
+  overflow-y: hidden;
 }
 
-.card h5 {
-  font-size: 16px;
-  font-weight: bold;
+.card_img {
+  position: absolute;
+  width: 210px;
+  margin-top: 5px;
+  filter: drop-shadow(5px 10px 15px rgba(255, 255, 255, 0.4));
 }
 
-.card p {
+.card-body {
+  transform: translateY(13.2rem);
+  text-align: center;
+}
+
+.card-title {
   font-size: 14px;
-  color: #999;
+  color: white;
+  margin-bottom: .5rem;
+  margin-top: 115px;
 }
 
-.card h4 {
-  font-size: 16px;
-  color: red;
-  text-align: end;
+.card_price {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 1.2rem;
 }
 
-.carousel-control-prev {
-  position: absolute;
-  display: flex;
-  justify-content: start;
+.card-text {
+  font-size: 14px;
+  text-align: initial;
+  color: #666;
+  margin-bottom: 1.25rem;
+  opacity: 0;
 }
 
-.carousel-control-next {
-  position: absolute;
-  display: flex;
-  justify-content: end;
+.card_button {
+  display: block;
+  width: max-content;
+  padding: 1.125rem 2rem;
+  font-weight: bold;
+  transition: .2s;
+  opacity: 0;
+}
+
+.card_img,
+.card-body,
+.card-title,
+.card_price,
+.card-text {
+  transition: .5s;
+}
+
+.card:hover .card-body {
+  transform: translateY(13rem);
+}
+
+.card:hover .card_price {
+  transform: translateX(-2rem);
+}
+
+/*.card:hover .card_button*/
+.card:hover .card-text {
+  transition-delay: .2s;
+  opacity: 1;
 }

@@ -5,7 +5,13 @@
 
 require 'php/functions.php';
 
-$books = query("SELECT img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id_pengarang ORDER BY tahun < 2023");
+$news = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id_pengarang WHERE tahun = 2023 LIMIT 0,5");
+$books = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id_pengarang GROUP BY nama_pengarang");
+$onepiece = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id_pengarang WHERE nama_komik LIKE '%One Piece%' LIMIT 0,5");
+$naruto = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id_pengarang WHERE nama_komik LIKE '%Naruto%' LIMIT 0,5");
+$jujutsu = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id_pengarang WHERE nama_komik LIKE '%Jujutsu Kaisen%' LIMIT 0,5");
+$kimetsu = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id_pengarang WHERE nama_komik LIKE '%Kimetsu No Yaiba%' LIMIT 0,5");
+$ragnarok = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id_pengarang WHERE nama_komik LIKE '%Record Of Ragnarok%' LIMIT 0,5");
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +48,6 @@ $books = query("SELECT img, nama_komik, harga, pengarang.nama_pengarang FROM kom
         <div class="offcanvas-body">
           <div class="navbar-nav ms-auto">
             <a class="nav-link" href="index.php">Home</a>
-            <a class="nav-link" href="category.php">Category</a>
             <a class="nav-link" href="about.php">About</a>
             <a class="nav-link" href="login.php">Login</a>
           </div>
@@ -76,113 +81,160 @@ $books = query("SELECT img, nama_komik, harga, pengarang.nama_pengarang FROM kom
       </div>
 
       <div class="item mt-4 mb-4">
-        <h1 class="mb-4 text-center">Last Publish</h1>
-        <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="false">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="card-group">
-                <div class="card">
-                  <img src="img/One Piece Volume 105.jpg" class="card-img-top" alt="One Piece 1">
-                  <div class="card-body">
-                    <h5 class="card-title">One Piece Vol. 105</h5>
-                    <p class="card-text">Eiichiro Oda</p>
-                    <a href="#" class="btn btn-danger">Details</a>
-                    <h4 style="margin-top: -30px;">Rp. 150.000,00</h4>
-                  </div>
-                </div>
-                <div class="card">
-                  <img src="img/One Piece Volume 106.jpg" class="card-img-top" alt="One Piece 1">
-                  <div class="card-body">
-                    <h5 class="card-title">One Piece Vol. 106</h5>
-                    <p class="card-text">Eiichiro Oda</p>
-                    <a href="#" class="btn btn-danger">Details</a>
-                    <h4 style="margin-top: -30px;">Rp. 150.000,00</h4>
-                  </div>
-                </div>
-                <div class="card">
-                  <img src="img/One Piece Volume 107.jpg" class="card-img-top" alt="One Piece 1">
-                  <div class="card-body">
-                    <h5 class="card-title">One Piece Vol. 107</h5>
-                    <p class="card-text">Eiichiro Oda</p>
-                    <a href="#" class="btn btn-danger">Details</a>
-                    <h4 style="margin-top: -30px;">Rp. 150.000,00</h4>
-                  </div>
-                </div>
-                <div class="card">
-                  <img src="img/Jujutsu Kaisen Volume 22.jpg" class="card-img-top" alt="One Piece 1">
-                  <div class="card-body">
-                    <h5 class="card-title">Jujutsu Kaisen Vol. 22</h5>
-                    <p class="card-text">Gege Akutami</p>
-                    <a href="#" class="btn btn-danger">Details</a>
-                    <h4 style="margin-top: -30px;">Rp. 150.000,00</h4>
-                  </div>
+        <div class="header">
+          <h1 class="mb-4">Last Publish</h1>
+          <a href="php/last.php">View All</a>
+        </div>
+
+        <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 justify-content-center">
+          <?php foreach ($news as $new) : ?>
+            <div class="col">
+              <div class="card">
+                <img src="img/<?= $new['img']; ?>" class="card-img-top card_img" alt="<?= $new['nama_komik']; ?>">
+
+                <div class="card-body">
+                  <h1 class="card-title"><?= $new['nama_komik']; ?></h1>
+                  <span class="card_price">Rp. <?= number_format($new['harga'], 0, ',', '.'); ?></span>
+                  <p class="card-text"><?= $new['nama_pengarang']; ?></p>
+                  <a href="php/details.php?id=<?= $new['id_komik']; ?>" class="btn btn-danger card_button">Details</a>
                 </div>
               </div>
             </div>
-            <div class="carousel-item">
-              <div class="card-group">
-                <div class="card">
-                  <img src="img/Jujutsu Kaisen Volume 23.jpg" class="card-img-top" alt="One Piece 1">
-                  <div class="card-body">
-                    <h5 class="card-title">Jujutsu Kaisen Vol. 23</h5>
-                    <p class="card-text">Gege Akutami</p>
-                    <a href="#" class="btn btn-danger">Details</a>
-                    <h4 style="margin-top: -30px;">Rp. 150.000,00</h4>
-                  </div>
-                </div>
-                <div class="card">
-                  <img src="img/Jujutsu Kaisen Volume 24.jpg" class="card-img-top" alt="One Piece 1">
-                  <div class="card-body">
-                    <h5 class="card-title">Jujutsu Kaisen Vol. 24</h5>
-                    <p class="card-text">Gege Akutami</p>
-                    <a href="#" class="btn btn-danger">Details</a>
-                    <h4 style="margin-top: -30px;">Rp. 150.000,00</h4>
-                  </div>
-                </div>
-                <div class="card">
-                  <img src="img/Record of Ragnarok Volume 18.jpg" class="card-img-top" alt="One Piece 1">
-                  <div class="card-body">
-                    <h5 class="card-title">Record of Ragnarok Vol. 18</h5>
-                    <p class="card-text">Shinya Umemura</p>
-                    <a href="#" class="btn btn-danger">Details</a>
-                    <h4 style="margin-top: -30px;">Rp. 150.000,00</h4>
-                  </div>
-                </div>
-                <div class="card">
-                  <img src="img/Record of Ragnarok Volume 19.jpg" class="card-img-top" alt="One Piece 1">
-                  <div class="card-body">
-                    <h5 class="card-title">Record of Ragnarok Vol. 19</h5>
-                    <p class="card-text">Shinya Umemura</p>
-                    <a href="#" class="btn btn-danger">Details</a>
-                    <h4 style="margin-top: -30px;">Rp. 150.000,00</h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+          <?php endforeach; ?>
         </div>
       </div>
 
       <div class="list mb-4">
-        <h1 class="mb-4 text-center">All Books</h1>
-        <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 justify-content-center">
+        <div class="header">
+          <h1 class="mb-4">All Books</h1>
+          <a href="php/all.php">View All</a>
+        </div>
+        <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 justify-content-center">
           <?php foreach ($books as $book) : ?>
-            <div class="col mt-3">
-              <div class="card" style="width: 250px">
-                <img src="img/<?= $book['img']; ?>" class="card-img-top" alt="<?= $book['nama_pengarang']; ?>">
+            <div class="col">
+              <div class="card">
+                <img src="img/<?= $book['img']; ?>" class="card-img-top card_img" alt="<?= $book['nama_komik']; ?>">
+
                 <div class="card-body">
-                  <h5 class="card-title"><?= $book['nama_komik']; ?></h5>
+                  <h1 class="card-title"><?= $book['nama_komik']; ?></h1>
+                  <span class="card_price">Rp. <?= number_format($book['harga'], 0, ',', '.'); ?></span>
                   <p class="card-text"><?= $book['nama_pengarang']; ?></p>
-                  <a href="#" class="btn btn-danger">Details</a>
-                  <h4 style="margin-top: -30px;">Rp. <?= number_format($book['harga'], 0, ',', '.'); ?></h4>
+                  <a href="php/details.php?id=<?= $book['id_komik']; ?>" class="btn btn-danger card_button">Details</a>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+
+      <div class="OnePiece mb-4">
+        <div class="header">
+          <h1 class="mb-4">One Piece</h1>
+          <a href="php/onepiece.php">View All</a>
+        </div>
+        <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 justify-content-center">
+          <?php foreach ($onepiece as $op) : ?>
+            <div class="col">
+              <div class="card">
+                <img src="img/<?= $op['img']; ?>" class="card-img-top card_img" alt="<?= $op['nama_komik']; ?>">
+
+                <div class="card-body">
+                  <h1 class="card-title"><?= $op['nama_komik']; ?></h1>
+                  <span class="card_price">Rp. <?= number_format($op['harga'], 0, ',', '.'); ?></span>
+                  <p class="card-text"><?= $op['nama_pengarang']; ?></p>
+                  <a href="php/details.php?id=<?= $op['id_komik']; ?>" class="btn btn-danger card_button">Details</a>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+
+      <div class="Naruto mb-4">
+        <div class="header">
+          <h1 class="mb-4">Naruto Shippuden</h1>
+          <a href="php/naruto.php">View All</a>
+        </div>
+        <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 justify-content-center">
+          <?php foreach ($naruto as $ns) : ?>
+            <div class="col">
+              <div class="card">
+                <img src="img/<?= $ns['img']; ?>" class="card-img-top card_img" alt="<?= $ns['nama_komik']; ?>">
+
+                <div class="card-body">
+                  <h1 class="card-title"><?= $ns['nama_komik']; ?></h1>
+                  <span class="card_price">Rp. <?= number_format($ns['harga'], 0, ',', '.'); ?></span>
+                  <p class="card-text"><?= $ns['nama_pengarang']; ?></p>
+                  <a href="php/details.php?id=<?= $ns['id_komik']; ?>" class="btn btn-danger card_button">Details</a>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+
+      <div class="Jujutsu mb-4">
+        <div class="header">
+          <h1 class="mb-4">Jujutsu Kaisen</h1>
+          <a href="php/jujutsu.php">View All</a>
+        </div>
+        <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 justify-content-center">
+          <?php foreach ($jujutsu as $jk) : ?>
+            <div class="col">
+              <div class="card">
+                <img src="img/<?= $jk['img']; ?>" class="card-img-top card_img" alt="<?= $jk['nama_komik']; ?>">
+
+                <div class="card-body">
+                  <h1 class="card-title"><?= $jk['nama_komik']; ?></h1>
+                  <span class="card_price">Rp. <?= number_format($jk['harga'], 0, ',', '.'); ?></span>
+                  <p class="card-text"><?= $jk['nama_pengarang']; ?></p>
+                  <a href="php/details.php?id=<?= $jk['id_komik']; ?>" class="btn btn-danger card_button">Details</a>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+
+      <div class="Kimetsu mb-4">
+        <div class="header">
+          <h1 class="mb-4">Kimetsu No Yaiba</h1>
+          <a href="php/kimetsu.php">View All</a>
+        </div>
+        <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 justify-content-center">
+          <?php foreach ($kimetsu as $kny) : ?>
+            <div class="col">
+              <div class="card">
+                <img src="img/<?= $kny['img']; ?>" class="card-img-top card_img" alt="<?= $kny['nama_komik']; ?>">
+
+                <div class="card-body">
+                  <h1 class="card-title"><?= $kny['nama_komik']; ?></h1>
+                  <span class="card_price">Rp. <?= number_format($kny['harga'], 0, ',', '.'); ?></span>
+                  <p class="card-text"><?= $kny['nama_pengarang']; ?></p>
+                  <a href="php/details.php?id=<?= $kny['id_komik']; ?>" class="btn btn-danger card_button">Details</a>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+
+      <div class="Ragnarok mb-4">
+        <div class="header">
+          <h1 class="mb-4">Record Of Ragnarok</h1>
+          <a href="php/ragnarok.php">View All</a>
+        </div>
+        <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 justify-content-center">
+          <?php foreach ($ragnarok as $shuumatsu) : ?>
+            <div class="col">
+              <div class="card">
+                <img src="img/<?= $shuumatsu['img']; ?>" class="card-img-top card_img" alt="<?= $shuumatsu['nama_komik']; ?>">
+
+                <div class="card-body">
+                  <h1 class="card-title"><?= $shuumatsu['nama_komik']; ?></h1>
+                  <span class="card_price">Rp. <?= number_format($shuumatsu['harga'], 0, ',', '.'); ?></span>
+                  <p class="card-text"><?= $shuumatsu['nama_pengarang']; ?></p>
+                  <a href="php/details.php?id=<?= $shuumatsu['id_komik']; ?>" class="btn btn-danger card_button">Details</a>
                 </div>
               </div>
             </div>
