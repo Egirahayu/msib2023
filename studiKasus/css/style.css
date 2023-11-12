@@ -22,14 +22,26 @@
   position: relative;
   float: right;
   font-size: 20px;
-  color: blue;
+  color: white;
   text-decoration: none;
   margin-top: -55px;
 }
 
-.card {
+.list button {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  height: 45px;
+  margin-right: 10px;
+}
+
+.list button:hover {
+  color: black;
+}
+
+.card_item {
   width: 215px;
-  height: 525px;
+  height: 485px;
   background-color: black;
   padding: 2.5px;
   border-radius: 1rem;
@@ -44,12 +56,12 @@
   filter: drop-shadow(5px 10px 15px rgba(255, 255, 255, 0.4));
 }
 
-.card-body {
+.card_body {
   transform: translateY(13.2rem);
   text-align: center;
 }
 
-.card-title {
+.card_title {
   font-size: 14px;
   color: white;
   margin-bottom: .5rem;
@@ -63,10 +75,11 @@
   margin-bottom: 1.2rem;
 }
 
-.card-text {
+.card_text {
   font-size: 14px;
   text-align: initial;
   color: #666;
+  margin-top: -10px;
   margin-bottom: 1.25rem;
   opacity: 0;
 }
@@ -74,21 +87,21 @@
 .card_button {
   display: block;
   width: max-content;
-  padding: 1.125rem 2rem;
   font-weight: bold;
+  margin-top: -10px;
   transition: .2s;
   opacity: 0;
 }
 
 .card_img,
-.card-body,
-.card-title,
+.card_body,
+.card_title,
 .card_price,
-.card-text {
+.card_text {
   transition: .5s;
 }
 
-.card:hover .card-body {
+.card:hover .card_body {
   transform: translateY(13rem);
 }
 
@@ -96,8 +109,49 @@
   transform: translateX(-2rem);
 }
 
-/*.card:hover .card_button*/
-.card:hover .card-text {
+.card:hover .card_text,
+.card:hover .card_button {
   transition-delay: .2s;
   opacity: 1;
+}
+
+.footer span {
+  position: absolute;
+  margin-top: 5px;
+}
+
+.medsos a {
+  background: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 14px;
+  line-height: 40px;
+  display: inline-block;
+  text-align: center;
+  margin-right: 8px;
+  border: 1px solid #EEE1E0
+}
+
+.medsos a:hover {
+  color: #fff;
+  background: #FF1616;
+  border: 1px solid transparent
+}
+
+.medsos a i {
+  display: inline-block
+}
+
+.category a,
+.nav_map a {
+  text-decoration: none;
+  color: white;
+}
+
+.category a:hover,
+.nav_map a:hover {
+  text-decoration-line: underline;
+  color: white;
 }
