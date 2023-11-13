@@ -5,7 +5,7 @@
 
 require "functions.php";
 
-$books = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id_pengarang ORDER BY tahun DESC");
+$books = query("SELECT komik.id, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id ORDER BY tahun DESC");
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +66,7 @@ $books = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_pengaran
               <h1 class="card-title card_title"><?= $book['nama_komik']; ?></h1>
               <span class="card_price">Rp. <?= number_format($book['harga'], 0, ',', '.'); ?></span>
               <p class="card-text card_text"><?= $book['nama_pengarang']; ?></p>
-              <a href="details.php?id=<?= $book['id_komik']; ?>" class="btn btn-danger card_button">Details</a>
+              <a href="details.php?id=<?= $book['id']; ?>" class="btn btn-danger card_button">Details</a>
             </div>
           </div>
         </div>

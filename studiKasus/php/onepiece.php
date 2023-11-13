@@ -5,7 +5,7 @@
 
 require "functions.php";
 
-$onepiece = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id_pengarang WHERE nama_komik LIKE '%One Piece%'");
+$onepiece = query("SELECT komik.id, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id WHERE nama_komik LIKE '%One Piece%'");
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +66,7 @@ $onepiece = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_penga
               <h1 class="card-title card_title"><?= $op['nama_komik']; ?></h1>
               <span class="card_price">Rp. <?= number_format($op['harga'], 0, ',', '.'); ?></span>
               <p class="card-text card_text"><?= $op['nama_pengarang']; ?></p>
-              <a href="details.php?id=<?= $op['id_komik']; ?>" class="btn btn-danger card_button">Details</a>
+              <a href="details.php?id=<?= $op['id']; ?>" class="btn btn-danger card_button">Details</a>
             </div>
           </div>
         </div>

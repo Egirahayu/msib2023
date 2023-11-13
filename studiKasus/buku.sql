@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2023 at 09:04 AM
+-- Generation Time: Nov 13, 2023 at 05:08 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `category` (
-  `id_category` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nama_category` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -36,12 +36,12 @@ CREATE TABLE `category` (
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id_category`, `nama_category`) VALUES
+INSERT INTO `category` (`id`, `nama_category`) VALUES
 (1, 'One Piece'),
 (2, 'Naruto Shippuden'),
 (3, 'Jujutsu Kaisen'),
 (4, 'Kimetsu No Yaiba'),
-(5, 'Record Of Ragnarok');
+(5, 'Record of Ragnarok');
 
 -- --------------------------------------------------------
 
@@ -50,7 +50,7 @@ INSERT INTO `category` (`id_category`, `nama_category`) VALUES
 --
 
 CREATE TABLE `komik` (
-  `id_komik` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `img` varchar(50) NOT NULL,
   `nama_komik` varchar(50) NOT NULL,
   `deskripsi` text NOT NULL,
@@ -65,7 +65,7 @@ CREATE TABLE `komik` (
 -- Dumping data for table `komik`
 --
 
-INSERT INTO `komik` (`id_komik`, `img`, `nama_komik`, `deskripsi`, `tahun`, `harga`, `category_id`, `penerbit_id`, `pengarang_id`) VALUES
+INSERT INTO `komik` (`id`, `img`, `nama_komik`, `deskripsi`, `tahun`, `harga`, `category_id`, `penerbit_id`, `pengarang_id`) VALUES
 (1, 'Jujutsu Kaisen Volume 14.jpg', 'Jujutsu Kaisen Vol. 14', 'While the city of Shibuya is severely damaged by the brutal behavior of Sukusho, who has gained temporary freedom, Fushiguro, who was mortally wounded by a surprise attack by a curse master, decides to resort to the last resort. When he realized that Fushiguro had started the \"Ceremony of Training\", he was ...!', 2021, 150000, 3, 1, 2),
 (2, 'Jujutsu Kaisen Volume 15.jpg', 'Jujutsu Kaisen Vol. 15', 'Mass murder by Sukusho, the death of Kento Nanami ... - And even Kugizaki in the hands of Majin-! Just when the weight of his own sins exceeds the limits of his heart, that man rushes to the crisis of his best friend. What is the end point of the two of Tiger Staff and Majin, who curse each other?', 2021, 150000, 3, 1, 2),
 (3, 'Jujutsu Kaisen Volume 16.jpg', 'Jujutsu Kaisen Vol. 16', 'Natsuyu takes Makoto into his hands and tells a part of his plan. As the sorcerers gather at the final stage of the Shibuya Incident, Sousou discovers the identity of the \"mastermind\" who parasitizes Natsuyu\'s corpse! The world will change suddenly in the ruin and chaos caused by the end of the incident.', 2021, 150000, 3, 1, 2),
@@ -115,7 +115,7 @@ INSERT INTO `komik` (`id_komik`, `img`, `nama_komik`, `deskripsi`, `tahun`, `har
 (47, 'Record Of Ragnarok Volume 7.jpg', 'Record Of Ragnarok Vol. 7', 'Humanity\'s most notorious murderer, Jack the Ripper, has proven to be an unexpectedly clever and difficult opponent for the heroic Heracles. Their battle through the dark streets of 19th-century London takes more than a few surprising turns, until Jack actually manages to sever Heracles\' arm! The watching crowd is stunned and outraged—how can this be? Heracles realizes he really needs to pull out all the stops to win, but Brunhilde\'s twisted champion has more tricks up his sleeve...', 2020, 150000, 5, 2, 4),
 (48, 'Record Of Ragnarok Volume 8.jpg', 'Record Of Ragnarok Vol. 8', 'Round Four of Ragnarok has ended in a shocking win for Humanity, with Jack the Ripper standing victorious over the mighty but fallen Heracles. With the score now tied, the Gods are absolutely determined not to let Humanity get ahead. Raring to go since the start, Shiva, the Destroyer, finally gets his chance to enter the Valhalla Arena. With an opportunity to take the lead, Brunhilde calls upon the unbridled strength of the greatest (and horniest) sumo wrestler in history, Raiden Tameemon!', 2020, 150000, 5, 2, 4),
 (49, 'Record Of Ragnarok Volume 9.jpg', 'Record Of Ragnarok Vol. 9', 'In the Valhalla Arena, Raiden Tameemon stands ready to fight for Humanity after unleashing his superhuman muscles. Representing the Gods, Shiva the Destroyer is confident of his eventual victory. As the two are squaring off, Loki seeking the secret of Völundr, the power the Valkyries use to merge with the Human heroes\' weapons. What he finds is an insolent Buddha, who might know something about it. But getting answers may require an unsanctioned brawl between a rowdy group of Gods and some Human heroes!', 2020, 150000, 5, 2, 4),
-(50, 'Record Of Ragnarok Volume 10.jpg', 'Record Of Ragnarok Vol. 10', 'Raiden Tameemon, the greatest sumo wrestler in history, faces Shiva, the God of Destruction! During his life, Raiden always had to pull his punches for fear of doing too much damage, so strong were his incredible muscles. Now in Round Five, he can finally unleash everything he has. He\'ll need to go all out to beat Shiva, who stands at the top of the Hindu Pantheon. It\'s an incredible matchup between two fighters whose only goal is to find an opponent worth giving everything they have!', 2021, 150000, 5, 2, 4);
+(50, 'Record of Ragnarok Volume 10.jpg', 'Record of Ragnarok Vol. 10', 'Raiden Tameemon, the greatest sumo wrestler in history, faces Shiva, the God of Destruction! During his life, Raiden always had to pull his punches for fear of doing too much damage, so strong were his incredible muscles. Now in Round Five, he can finally unleash everything he has. He\'ll need to go all out to beat Shiva, who stands at the top of the Hindu Pantheon. It\'s an incredible matchup between two fighters whose only goal is to find an opponent worth giving everything they have!', 2021, 150000, 5, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -124,7 +124,7 @@ INSERT INTO `komik` (`id_komik`, `img`, `nama_komik`, `deskripsi`, `tahun`, `har
 --
 
 CREATE TABLE `penerbit` (
-  `id_penerbit` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nama_penerbit` varchar(50) NOT NULL,
   `alamat` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -133,7 +133,7 @@ CREATE TABLE `penerbit` (
 -- Dumping data for table `penerbit`
 --
 
-INSERT INTO `penerbit` (`id_penerbit`, `nama_penerbit`, `alamat`) VALUES
+INSERT INTO `penerbit` (`id`, `nama_penerbit`, `alamat`) VALUES
 (1, 'Shueisha', 'Chiyoda, Tokyo'),
 (2, 'Tokuma Shoten', 'Shinagawa, Tokyo');
 
@@ -144,7 +144,7 @@ INSERT INTO `penerbit` (`id_penerbit`, `nama_penerbit`, `alamat`) VALUES
 --
 
 CREATE TABLE `pengarang` (
-  `id_pengarang` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nama_pengarang` varchar(50) NOT NULL,
   `tgl_lahir` date NOT NULL,
   `alamat` text NOT NULL
@@ -154,7 +154,7 @@ CREATE TABLE `pengarang` (
 -- Dumping data for table `pengarang`
 --
 
-INSERT INTO `pengarang` (`id_pengarang`, `nama_pengarang`, `tgl_lahir`, `alamat`) VALUES
+INSERT INTO `pengarang` (`id`, `nama_pengarang`, `tgl_lahir`, `alamat`) VALUES
 (1, 'Masashi Kishimoto', '1974-11-08', 'Okayama, Japan'),
 (2, 'Gege Akutami', '1992-02-26', 'Iwate, Japan'),
 (3, 'Eiichiro Oda', '1975-01-01', 'Kumamoto, Japan'),
@@ -174,6 +174,13 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id_user`, `username`, `password`) VALUES
+(1, 'admin', '$2y$10$TCdlE0HZ2mnHa.jW1R5FKOkB.SVEqIK7cIF8zT5oIxvs3.WrIQuX6');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -181,13 +188,13 @@ CREATE TABLE `user` (
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`id_category`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `komik`
 --
 ALTER TABLE `komik`
-  ADD PRIMARY KEY (`id_komik`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `FOREIGN` (`category_id`,`penerbit_id`,`pengarang_id`) USING BTREE,
   ADD KEY `pengarang_id` (`pengarang_id`),
   ADD KEY `penerbit_id` (`penerbit_id`);
@@ -196,13 +203,13 @@ ALTER TABLE `komik`
 -- Indexes for table `penerbit`
 --
 ALTER TABLE `penerbit`
-  ADD PRIMARY KEY (`id_penerbit`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `pengarang`
 --
 ALTER TABLE `pengarang`
-  ADD PRIMARY KEY (`id_pengarang`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user`
@@ -218,31 +225,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `komik`
 --
 ALTER TABLE `komik`
-  MODIFY `id_komik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `penerbit`
 --
 ALTER TABLE `penerbit`
-  MODIFY `id_penerbit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pengarang`
 --
 ALTER TABLE `pengarang`
-  MODIFY `id_pengarang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -252,9 +259,9 @@ ALTER TABLE `user`
 -- Constraints for table `komik`
 --
 ALTER TABLE `komik`
-  ADD CONSTRAINT `komik_ibfk_1` FOREIGN KEY (`pengarang_id`) REFERENCES `pengarang` (`id_pengarang`),
-  ADD CONSTRAINT `komik_ibfk_2` FOREIGN KEY (`penerbit_id`) REFERENCES `penerbit` (`id_penerbit`),
-  ADD CONSTRAINT `komik_ibfk_3` FOREIGN KEY (`category_id`) REFERENCES `category` (`id_category`);
+  ADD CONSTRAINT `komik_ibfk_1` FOREIGN KEY (`pengarang_id`) REFERENCES `pengarang` (`id`),
+  ADD CONSTRAINT `komik_ibfk_2` FOREIGN KEY (`penerbit_id`) REFERENCES `penerbit` (`id`),
+  ADD CONSTRAINT `komik_ibfk_3` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -12,11 +12,11 @@ require 'functions.php';
 
 $id = $_GET['id'];
 
-$komik = query("SELECT komik.*, pengarang.nama_pengarang, penerbit.nama_penerbit
+$komik = query("SELECT komik.id, img, nama_komik, deskripsi, harga, pengarang.nama_pengarang, penerbit.nama_penerbit
 FROM komik 
-JOIN pengarang ON komik.pengarang_id = pengarang.id_pengarang
-JOIN penerbit ON komik.penerbit_id = penerbit.id_penerbit
-WHERE id_komik = $id")[0];
+JOIN pengarang ON komik.pengarang_id = pengarang.id
+JOIN penerbit ON komik.penerbit_id = penerbit.id
+WHERE komik.id = $id")[0];
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +38,8 @@ WHERE id_komik = $id")[0];
 
 <body style="background-image: url(../img/index-pw.jpg)">
   <div class="container">
-    <div class="details mt-4 bg-secondary">
+    <h1 class="text-center text-white mt-4 mb-4">Detail Komik</h1>
+    <div class="details mt-4 bg-success">
       <div class="row justify-content-between">
         <div class="col-3 mt-4 mb-4 mx-5">
           <img src="../img/<?= $komik['img']; ?>" alt="<?= $komik['nama_komik']; ?>" width="300px">

@@ -5,7 +5,7 @@
 
 require "functions.php";
 
-$kimetsu = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id_pengarang WHERE nama_komik LIKE '%Kimetsu No Yaiba%'");
+$kimetsu = query("SELECT komik.id, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id WHERE nama_komik LIKE '%Kimetsu No Yaiba%'");
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +66,7 @@ $kimetsu = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_pengar
               <h1 class="card-title card_title"><?= $kny['nama_komik']; ?></h1>
               <span class="card_price">Rp. <?= number_format($kny['harga'], 0, ',', '.'); ?></span>
               <p class="card-text card_text"><?= $kny['nama_pengarang']; ?></p>
-              <a href="details.php?id=<?= $kny['id_komik']; ?>" class="btn btn-danger card_button">Details</a>
+              <a href="details.php?id=<?= $kny['id']; ?>" class="btn btn-danger card_button">Details</a>
             </div>
           </div>
         </div>

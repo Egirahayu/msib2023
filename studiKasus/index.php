@@ -5,13 +5,13 @@
 
 require 'php/functions.php';
 
-$news = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id_pengarang WHERE tahun = 2023 LIMIT 0,5");
-$books = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id_pengarang GROUP BY nama_pengarang");
-$onepiece = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id_pengarang WHERE nama_komik LIKE '%One Piece%' LIMIT 0,5");
-$naruto = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id_pengarang WHERE nama_komik LIKE '%Naruto%' LIMIT 0,5");
-$jujutsu = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id_pengarang WHERE nama_komik LIKE '%Jujutsu Kaisen%' LIMIT 0,5");
-$kimetsu = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id_pengarang WHERE nama_komik LIKE '%Kimetsu No Yaiba%' LIMIT 0,5");
-$ragnarok = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id_pengarang WHERE nama_komik LIKE '%Record Of Ragnarok%' LIMIT 0,5");
+$news = query("SELECT komik.id, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id WHERE tahun = 2023 LIMIT 0,5");
+$books = query("SELECT komik.id, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id GROUP BY nama_pengarang");
+$onepiece = query("SELECT komik.id, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id WHERE nama_komik LIKE '%One Piece%' LIMIT 0,5");
+$naruto = query("SELECT komik.id, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id WHERE nama_komik LIKE '%Naruto%' LIMIT 0,5");
+$jujutsu = query("SELECT komik.id, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id WHERE nama_komik LIKE '%Jujutsu Kaisen%' LIMIT 0,5");
+$kimetsu = query("SELECT komik.id, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id WHERE nama_komik LIKE '%Kimetsu No Yaiba%' LIMIT 0,5");
+$ragnarok = query("SELECT komik.id, img, nama_komik, harga, pengarang.nama_pengarang FROM komik JOIN pengarang ON komik.pengarang_id = pengarang.id WHERE nama_komik LIKE '%Record Of Ragnarok%' LIMIT 0,5");
 ?>
 
 <!DOCTYPE html>
@@ -65,13 +65,13 @@ $ragnarok = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_penga
       <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner slider">
           <div class="carousel-item active">
-            <img src="https://source.unsplash.com/450x300?manga" class="d-block w-100" alt="Slider 1">
+            <img src="img/Buku.jpg" height="750px" class="d-block w-100" alt="Slider 1">
           </div>
           <div class="carousel-item">
-            <img src="https://source.unsplash.com/450x300?books" class="d-block w-100" alt="Slider 2">
+            <img src="img/Luffy.jpg" height="750px" class="d-block w-100" alt="Slider 2">
           </div>
           <div class="carousel-item">
-            <img src="https://source.unsplash.com/450x300?book-cover" class="d-block w-100" alt="Slider 3">
+            <img src="img/Manga.jpg" height="750px" class="d-block w-100" alt="Slider 3">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -100,7 +100,7 @@ $ragnarok = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_penga
                   <h1 class="card-title card_title"><?= $new['nama_komik']; ?></h1>
                   <span class="card_price">Rp. <?= number_format($new['harga'], 0, ',', '.'); ?></span>
                   <p class="card-text card_text"><?= $new['nama_pengarang']; ?></p>
-                  <a href="php/details.php?id=<?= $new['id_komik']; ?>" class="btn btn-danger card_button">Details</a>
+                  <a href="php/details.php?id=<?= $new['id']; ?>" class="btn btn-danger card_button">Details</a>
                 </div>
               </div>
             </div>
@@ -149,7 +149,7 @@ $ragnarok = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_penga
                     <h1 class="card-title card_title"><?= $book['nama_komik']; ?></h1>
                     <span class="card_price">Rp. <?= number_format($book['harga'], 0, ',', '.'); ?></span>
                     <p class="card-text card_text"><?= $book['nama_pengarang']; ?></p>
-                    <a href="php/details.php?id=<?= $book['id_komik']; ?>" class="btn btn-danger card_button">Details</a>
+                    <a href="php/details.php?id=<?= $book['id']; ?>" class="btn btn-danger card_button">Details</a>
                   </div>
                 </div>
               </div>
@@ -170,7 +170,7 @@ $ragnarok = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_penga
                     <h1 class="card-title card_title"><?= $op['nama_komik']; ?></h1>
                     <span class="card_price">Rp. <?= number_format($op['harga'], 0, ',', '.'); ?></span>
                     <p class="card-text card_text"><?= $op['nama_pengarang']; ?></p>
-                    <a href="php/details.php?id=<?= $op['id_komik']; ?>" class="btn btn-danger card_button">Details</a>
+                    <a href="php/details.php?id=<?= $op['id']; ?>" class="btn btn-danger card_button">Details</a>
                   </div>
                 </div>
               </div>
@@ -191,7 +191,7 @@ $ragnarok = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_penga
                     <h1 class="card-title card_title"><?= $ns['nama_komik']; ?></h1>
                     <span class="card_price">Rp. <?= number_format($ns['harga'], 0, ',', '.'); ?></span>
                     <p class="card-text card_text"><?= $ns['nama_pengarang']; ?></p>
-                    <a href="php/details.php?id=<?= $ns['id_komik']; ?>" class="btn btn-danger card_button">Details</a>
+                    <a href="php/details.php?id=<?= $ns['id']; ?>" class="btn btn-danger card_button">Details</a>
                   </div>
                 </div>
               </div>
@@ -212,7 +212,7 @@ $ragnarok = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_penga
                     <h1 class="card-title card_title"><?= $jk['nama_komik']; ?></h1>
                     <span class="card_price">Rp. <?= number_format($jk['harga'], 0, ',', '.'); ?></span>
                     <p class="card-text card_text"><?= $jk['nama_pengarang']; ?></p>
-                    <a href="php/details.php?id=<?= $jk['id_komik']; ?>" class="btn btn-danger card_button">Details</a>
+                    <a href="php/details.php?id=<?= $jk['id']; ?>" class="btn btn-danger card_button">Details</a>
                   </div>
                 </div>
               </div>
@@ -233,7 +233,7 @@ $ragnarok = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_penga
                     <h1 class="card-title card_title"><?= $kny['nama_komik']; ?></h1>
                     <span class="card_price">Rp. <?= number_format($kny['harga'], 0, ',', '.'); ?></span>
                     <p class="card-text card_text"><?= $kny['nama_pengarang']; ?></p>
-                    <a href="php/details.php?id=<?= $kny['id_komik']; ?>" class="btn btn-danger card_button">Details</a>
+                    <a href="php/details.php?id=<?= $kny['id']; ?>" class="btn btn-danger card_button">Details</a>
                   </div>
                 </div>
               </div>
@@ -254,7 +254,7 @@ $ragnarok = query("SELECT id_komik, img, nama_komik, harga, pengarang.nama_penga
                     <h1 class="card-title card_title"><?= $ror['nama_komik']; ?></h1>
                     <span class="card_price">Rp. <?= number_format($ror['harga'], 0, ',', '.'); ?></span>
                     <p class="card-text card_text"><?= $ror['nama_pengarang']; ?></p>
-                    <a href="php/details.php?id=<?= $ror['id_komik']; ?>" class="btn btn-danger card_button">Details</a>
+                    <a href="php/details.php?id=<?= $ror['id']; ?>" class="btn btn-danger card_button">Details</a>
                   </div>
                 </div>
               </div>
