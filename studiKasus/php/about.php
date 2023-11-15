@@ -81,9 +81,9 @@
         </div>
     </div>
 
-    <div class="footer text-white">
+    <div class="footer bg-black text-white">
         <div class="container">
-            <div class="row bg-black mt-4">
+            <div class="row mt-4">
                 <div class="col-3 mt-4 mb-4">
                     <img src="../img/ER-2.png" alt="ER-Books" width="45px">
                     <span class="mx-2 fs-4 fw-bold">ER-Book</span>
@@ -116,6 +116,11 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="footer-bottom bg-secondary text-center text-white" style="height: 30px; font-size: 20px;">
+        <div class="container">
+            <p>Mohamad Egi Rahayu. Copyright &copy;2023</p>
         </div>
     </div>
 

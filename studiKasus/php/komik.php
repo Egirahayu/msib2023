@@ -173,6 +173,7 @@ if (!isset($_SESSION["username"])) {
                                         <td><?= $manga['nama_penerbit']; ?></td>
                                         <td><?= $manga['nama_pengarang']; ?></td>
                                         <td>
+                                            <a href="komik/show.php?id=<?= $manga['id']; ?>" class="badge bg-info"><span data-feather="eye" style="with: 18px;"></span></a>
                                             <a href="komik/edit.php?id=<?= $manga['id']; ?>" class="badge bg-warning"><span data-feather="edit" style="with: 18px;"></span></a>
                                             <a href="komik/delete.php?id=<?= $manga['id']; ?>" class="badge bg-danger" onclick="return confirm('Hapus Data?')"><span data-feather="x-circle" style="width: 18px;"></span></a>
                                         </td>

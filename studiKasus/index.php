@@ -61,29 +61,29 @@ $ragnarok = query("SELECT komik.id, img, nama_komik, harga, pengarang.nama_penga
   </nav>
 
   <div class="home">
-    <div class="container">
-      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner slider">
-          <div class="carousel-item active">
-            <img src="img/Buku.jpg" height="750px" class="d-block w-100" alt="Slider 1">
-          </div>
-          <div class="carousel-item">
-            <img src="img/Luffy.jpg" height="750px" class="d-block w-100" alt="Slider 2">
-          </div>
-          <div class="carousel-item">
-            <img src="img/Manga.jpg" height="750px" class="d-block w-100" alt="Slider 3">
-          </div>
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner slider">
+        <div class="carousel-item active">
+          <img src="img/Buku.jpg" height="750px" class="d-block w-100" alt="Slider 1">
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+        <div class="carousel-item">
+          <img src="img/Luffy.jpg" height="750px" class="d-block w-100" alt="Slider 2">
+        </div>
+        <div class="carousel-item">
+          <img src="img/Manga.jpg" height="750px" class="d-block w-100" alt="Slider 3">
+        </div>
       </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
 
+    <div class="container">
       <div class="item mt-4 mb-4">
         <div class="header">
           <h1 class="mb-4 text-white">Last Publish</h1>
@@ -128,7 +128,7 @@ $ragnarok = query("SELECT komik.id, img, nama_komik, harga, pengarang.nama_penga
               <button class="nav-link" id="pills-kny-tab" data-bs-toggle="pill" data-bs-target="#pills-kny" type="button" role="tab" aria-controls="pills-kny" aria-selected="false">Kimetsu No Yaiba</button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="pills-ror-tab" data-bs-toggle="pill" data-bs-target="#pills-ror" type="button" role="tab" aria-controls="pills-ror" aria-selected="false">Record Of Ragnarok</button>
+              <button class="nav-link" id="pills-ror-tab" data-bs-toggle="pill" data-bs-target="#pills-ror" type="button" role="tab" aria-controls="pills-ror" aria-selected="false">Record of Ragnarok</button>
             </li>
           </ul>
         </div>
@@ -265,9 +265,9 @@ $ragnarok = query("SELECT komik.id, img, nama_komik, harga, pengarang.nama_penga
     </div>
   </div>
 
-  <div class="footer text-white">
+  <div class="footer bg-black text-white">
     <div class="container">
-      <div class="row bg-black mt-4">
+      <div class="row mt-4">
         <div class="col-3 mt-4 mb-4">
           <img src="img/ER-2.png" alt="ER-Books" width="45px">
           <span class="mx-2 fs-4 fw-bold">ER-Book</span>
@@ -280,14 +280,14 @@ $ragnarok = query("SELECT komik.id, img, nama_komik, harga, pengarang.nama_penga
           </div>
         </div>
         <div class="col-5 mt-4 mb-4">
-          <h4 style="margin-left: 100px;">Book Category</h4>
+          <h4 style="margin-left: 120px;">Book Category</h4>
 
           <div class="category mt-4">
-            <p style="margin-left: 100px;"><a href="php/onepiece.php">One Piece</a></p>
-            <p style="margin-left: 100px;"><a href="php/naruto.php">Naruto Shippuden</a></p>
-            <p style="margin-left: 100px;"><a href="php/jujutsu.php">Jujutsu Kaisen</a></p>
-            <p style="margin-left: 100px;"><a href="php/kimetsu.php">Kimetsu No Yaiba</a></p>
-            <p style="margin-left: 100px;"><a href="php/ragnarok.php">Record of Ragnarok</a></p>
+            <p style="margin-left: 120px;"><a href="php/onepiece.php">One Piece</a></p>
+            <p style="margin-left: 120px;"><a href="php/naruto.php">Naruto Shippuden</a></p>
+            <p style="margin-left: 120px;"><a href="php/jujutsu.php">Jujutsu Kaisen</a></p>
+            <p style="margin-left: 120px;"><a href="php/kimetsu.php">Kimetsu No Yaiba</a></p>
+            <p style="margin-left: 120px;"><a href="php/ragnarok.php">Record of Ragnarok</a></p>
           </div>
         </div>
         <div class="col-4 mt-4 mb-4">
@@ -300,6 +300,11 @@ $ragnarok = query("SELECT komik.id, img, nama_komik, harga, pengarang.nama_penga
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="footer-bottom bg-secondary text-center text-white" style="height: 30px; font-size: 20px;">
+    <div class="container">
+      <p>Mohamad Egi Rahayu. Copyright &copy;2023</p>
     </div>
   </div>
 
