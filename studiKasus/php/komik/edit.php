@@ -13,9 +13,9 @@ JOIN penerbit ON komik.penerbit_id = penerbit.id
 JOIN pengarang ON komik.pengarang_id = pengarang.id
 WHERE komik.id = $id")[0];
 
-$category = query("SELECT category.id, nama_category FROM category JOIN komik ON komik.category_id = category.id");
-$publish = query("SELECT penerbit.id, nama_penerbit FROM penerbit JOIN komik ON komik.penerbit_id = penerbit.id");
-$author = query("SELECT pengarang.id, nama_pengarang FROM pengarang JOIN komik ON komik.pengarang_id = pengarang.id");
+$category = query("SELECT category.id, nama_category FROM category JOIN komik ON komik.category_id = category.id GROUP BY nama_category");
+$publish = query("SELECT penerbit.id, nama_penerbit FROM penerbit JOIN komik ON komik.penerbit_id = penerbit.id GROUP BY nama_penerbit");
+$author = query("SELECT pengarang.id, nama_pengarang FROM pengarang JOIN komik ON komik.pengarang_id = pengarang.id GROUP BY nama_pengarang");
 
 if (isset($_POST['update_komik'])) {
     if (update_komik($_POST) > 0) {
